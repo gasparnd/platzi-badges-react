@@ -28,6 +28,4 @@ class Badge extends React.Component {
 	}
 }
 
-console.log(React.Component)
-
 export default Badge
