@@ -5,20 +5,25 @@ import './styles/Badge.css'
 class Badge extends React.Component {
 	render() {
 		return (
-			<div className="badge">
-				<div className="badge__header">
-					<img src={ConfLogo} alt="PlatziConf Logo"/>
-				</div>
-				<div className="badge__section-name">
-					<img className="badge__avatar" src="https://www.gravatar.com/avatar?d=identicon" alt="User"/>
-					<h1>Gaspar <br/>Dolcemascolo</h1>
-				</div>
-				<div className="badge__section-info">
-					<h3>SoftWare Developer</h3>
-					<div>@gasparnd</div>
-				</div>
-				<div className="badge__footer">#PlatziConf</div>
-			</div>
+			<div className="Badge">
+        		<div className="Badge__header">
+          			<img src={ConfLogo} alt="Logo de la conferencia" />
+        		</div>
+
+        		<div className="Badge__section-name">
+          			<img className="Badge__avatar" src={this.props.avatarUrl} alt="Avatar" />
+          			<h1>
+            			{this.props.firstName} <br /> {this.props.lastName}
+          			</h1>
+        		</div>
+
+        		<div className="Badge__section-info">
+          			<h3>{this.props.jobTitle}</h3>
+          			<div>@{this.props.twitter}</div>
+        		</div>
+
+        		<div className="Badge__footer">#platziconf</div>
+      		</div>
 		)
 	}
 }
