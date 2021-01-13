@@ -6,6 +6,24 @@ import header from '../images/badge-header.svg'
 import './styles/BadgeNew.css'
 
 class BadgeNew extends React.Component {
+	state = { 
+		form: {
+			firstName: '',
+			lastName: '',
+			jobTitle: '',
+			twitter: '',
+			email: ''
+		}
+	} 
+	handleChange = e => {
+		this.setState({
+			form: {
+				... this.state.form,
+				[e.target.name]: e.target.value
+			}
+		})
+	}
+
 	render() {
 		return(
 			<div>
@@ -18,15 +36,15 @@ class BadgeNew extends React.Component {
 					<div className="row">
 						<div className="col-6">
 							<Badge 
-								firstName="Gaspar" 
-								lastName="Dolcemascolo" 
-								twitter="gasparnd" 
-								jobTitle="SoftWare Developer" 
+								firstName={this.state.form.firstName} 
+								lastName={this.state.form.lastName}  
+								twitter={this.state.form.twitter} 
+								jobTitle={this.state.form.jobTitle} 
 								avatarUrl="https://avatars3.githubusercontent.com/u/36377522?s=460&u=3b1f554c19b5dc2e21bf0aef269f44ee5bf87fdf&v=4" 
 							/>
 						</div>
 						<div className="col-6">
-							<BadgeForm />
+							<BadgeForm onChange={this.handleChange} formValues={this.state.form} />
 						</div>
 					</div>
 				</div>
