@@ -6,7 +6,7 @@ import './styles/NavBar.css'
 class NavBar extends React.Component {
 	render() {
 		return(
-			<div className="Navbar">
+			<section className="Navbar">
 				<div className="container-fluid">
 					<Link className="Navbar__brand" to="/">
 						<img className="Navbar__brand-logo" src={logo} alt="Platzi Conf Logo" />
@@ -14,7 +14,7 @@ class NavBar extends React.Component {
 						<span className="font-weight-bold">Conf</span>
 					</Link>
 				</div>
-			</div>
+			</section>
 		)
 	}
 }
