@@ -34,15 +34,16 @@ class BadgeNew extends React.Component {
 					<div className="row">
 						<div className="col-6">
 							<Badge 
-								firstName={this.state.form.firstName} 
-								lastName={this.state.form.lastName}  
-								twitter={this.state.form.twitter} 
-								jobTitle={this.state.form.jobTitle} 
+								firstName={this.state.form.firstName || 'First Name'} 
+								lastName={this.state.form.lastName || 'Last Name'}  
+								twitter={this.state.form.twitter || 'twitter'} 
+								email={this.state.form.email || 'name@example.com'} 
+								jobTitle={this.state.form.jobTitle || 'Job Title'} 
 								avatarUrl="https://avatars3.githubusercontent.com/u/36377522?s=460&u=3b1f554c19b5dc2e21bf0aef269f44ee5bf87fdf&v=4" 
 							/>
 						</div>
 						<div className="col-6">
-							<BadgeForm onChange={this.handleChange} formValues={this.state.form} />
+							<BadgeForm onSubmit={this.handleSubmit} onChange={this.handleChange} formValues={this.state.form} />
 						</div>
 					</div>
 				</div>
