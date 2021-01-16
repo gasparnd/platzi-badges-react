@@ -25,7 +25,7 @@ class BadgesList extends React.Component {
 							</div>
 							<div className="Badges__list-info">
 								<h3>{badge.firstName} {badge.lastName}</h3>
-								<a target="_black" href="https://twitter.com/">@{badge.twitter}</a>
+								<a target="_black" href={`https://twitter.com/${badge.twitter}`}>@{badge.twitter}</a>
 								<p>{badge.jobTitle}</p>
 							</div>
 						</li>

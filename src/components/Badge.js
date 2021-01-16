@@ -20,7 +20,7 @@ class Badge extends React.Component {
 
         		<div className="Badge__section-info">
           			<h3>{this.props.jobTitle}</h3>
-          			<div>@{this.props.twitter}</div>
+          			<a target="_blak" href={`https://twitter.com/${this.props.twitter}`}>@{this.props.twitter}</a>
         		</div>
 
         		<div className="Badge__footer">#platziconf</div>
