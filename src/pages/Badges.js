@@ -47,7 +47,6 @@ class Badges extends React.Component {
 	}
 
 	componentWillUnmount() {
-		console.log('6 componentWillUnmount()')
 		clearTimeout(this.timeoutId)
 	}
 
