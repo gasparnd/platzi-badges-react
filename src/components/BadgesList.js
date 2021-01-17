@@ -2,32 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Gravatar from './Gravatar'
 
-class BadgesList extends React.Component {
+class BadgesList extends React.Component{
 	render() {
-
-		if(this.props.badges.length === 0) {
-			return(
-				<div>
-					<h3>Badges were not found</h3>
-					<Link to="/new" className="btn btn-primary">
-						Create new Bage
-					</Link>
-				</div>
-			)
-		}
-
 		return(
 			<ul className="list-unstyled">
-				{this.props.badges.map(badge => {
+				{this.props.character.results.map(character => {
 					return (
-						<li className="Badges__list-item" key={badge.id}>
+						<li className="Badges__list-item" key={character.id}>
 							<div className="Badges__item-img">
-								<Gravatar email={badge.email} alt={badge.firstName} />
+								<img src={character.image} alt={character.name} />
 							</div>
 							<div className="Badges__list-info">
-								<h3>{badge.firstName} {badge.lastName}</h3>
-								<a target="_black" href={`https://twitter.com/${badge.twitter}`}>@{badge.twitter}</a>
-								<p>{badge.jobTitle}</p>
+								<h3>{character.name}</h3>
+								<a target="_black" href="https://twitter.com/">@{character.name}</a>
+								<p>{character.location}</p>
 							</div>
 						</li>
 					)

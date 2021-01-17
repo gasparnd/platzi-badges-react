@@ -1,10 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import BadgesList from '../components/BadgesList'
-import PageLoading from '../components/PageLoading'
-import PageError from '../components/PageError'
 import './styles/Badges.css'
-import confLogo from '../images/platziconf-logo.svg'
+import confLogo from '../images/badge-header.svg'
 import api from '../api'
 
 class Badges extends React.Component {
@@ -27,7 +25,8 @@ class Badges extends React.Component {
 	fetchData = async () => {
 		this.setState({ loading: true, error: null })
 		try {
-			const data = await api.badges.list()
+			const response = await fetch("https://rickandmortyapi.com/api/character")
+			const data = await response.json()
 			this.setState({
 				loading: false,
 				data: data
@@ -40,46 +39,44 @@ class Badges extends React.Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		console.log('5 componentDidUpdate()')
-		console.log({prevProps:prevProps, prevState:prevState})
 		console.log(
-			{props: this.props, state: this.state}
+			{props: this.props,
+						state: this.state}
 		)
 	}
 
 	componentWillUnmount() {
+		console.log('6 componentWillUnmount()')
 		clearTimeout(this.timeoutId)
 	}
 
 	render() {
 		if (this.state.loading) {
-			return <PageLoading />
-		}
-		if (this.state.error) {
-			return <PageError error={this.state.error} />
+			return'Loading...'
 		}
 
 		return(
-			<React.Fragment>
-				<div className="Badges">
-					<div className="Badges__hero">
-						<div className="Badges__container">
-							<img className="Badges_conf-logo" src={confLogo} alt="Platzi Conf Logo" />
-						</div>
+		<React.Fragment>
+			<div className="Badges">
+				<div className="Badges__hero">
+					<div className="Badges__container">
+						<img className="Badges_conf-logo"src={confLogo}alt="Platzi Conf Logo" />
 					</div>
 				</div>
-				<div className="Badge__container">
-					<div className="Badges__buttons">
-						<Link to="/new" className="btn btn-primary">
-							New Badge
-						</Link>
-					</div>
-					<div className="Badges__list">
-						<div className="Badges__container">
-							<BadgesList badges={this.state.data}/>
-						</div>
+			</div>
+			<div className="Badge__container">
+				<div className="Badges__buttons">
+					<Link to="/new" className="btn btn-primary">
+						New Badge
+					</Link>
+				</div>
+				<div className="Badges__list">
+					<div className="Badges__container">
+						<BadgesList character={this.state.data}/>
 					</div>
 				</div>
-			</React.Fragment>
+			</div>
+		</React.Fragment>
 		)
 	}
 }
