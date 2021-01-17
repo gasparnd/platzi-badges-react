@@ -10,7 +10,7 @@ class BadgeEdit extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			loading: true,
+			loading: false,
 			error: null,
 			form: {
 				firstName: '',
@@ -30,7 +30,7 @@ class BadgeEdit extends React.Component {
 	fetchData = async e => {
 		this.setState({loading: true, error: null,})
 		try {
-			const data = await api.badges.read(this.props.match.params.badgeId)
+			const data = await api.badges.create(this.props.match.params.badgeId);
 			this.setState({loading: false, form: data})
 		} catch (error) {
 			this.setState({loading: false, error: error})
