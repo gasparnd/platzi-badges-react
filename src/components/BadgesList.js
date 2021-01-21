@@ -5,12 +5,14 @@ import Gravatar from './Gravatar'
 class BadgesList extends React.Component {
 	render() {
 
-		if(this.props.badges.length === 0) {
+		const badges = [...this.props.badges].reverse()
+
+		if(badges === 0) {
 			return(
 				<div>
 					<h3>Badges were not found</h3>
 					<Link to="/new" className="btn btn-primary">
-						Create new Bage
+						Create new Badge
 					</Link>
 				</div>
 			)
@@ -18,7 +20,7 @@ class BadgesList extends React.Component {
 
 		return(
 			<ul className="list-unstyled">
-				{this.props.badges.map(badge => {
+				{badges.map(badge => {
 					return (
 						<li className="" key={badge.id}>
 							<Link className="text-reset text-decoration-none Badges__list-item" to={`/badges/${badge.id}/edit`} >
