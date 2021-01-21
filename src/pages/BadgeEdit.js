@@ -10,7 +10,7 @@ class BadgeEdit extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			loading: false,
+			loading: true,
 			error: null,
 			form: {
 				firstName: '',
@@ -23,14 +23,14 @@ class BadgeEdit extends React.Component {
 		}
 	}
 
-	componenetDidMount() {
+	componentDidMount() {
 		this.fetchData()
 	}
 
 	fetchData = async e => {
 		this.setState({loading: true, error: null,})
 		try {
-			const data = await api.badges.create(this.props.match.params.badgeId);
+			const data = await api.badges.read(this.props.match.params.badgeId);
 			this.setState({loading: false, form: data})
 		} catch (error) {
 			this.setState({loading: false, error: error})
@@ -47,14 +47,14 @@ class BadgeEdit extends React.Component {
 	}
 
 	handleSubmit = async e => {
-    	e.preventDefault();
+      e.preventDefault();
     	this.setState({ loading: true, error: null });
 
     	try {
-      		await api.badges.create(this.state.form);
+      		await api.badges.update(this.props.match.params.badgeId, this.state.form);
       		this.setState({ loading: false });
 
-      		this.props.history.push('/')
+      		this.props.history.push('/badges')
    		} catch (error) {
       		this.setState({ loading: false, error: error });
     	}
@@ -70,7 +70,6 @@ class BadgeEdit extends React.Component {
 				<div className="BadgeEdit__hero">
 					<img src={header} alt="Platzi Conf Logo" />
 				</div>
-				<div></div>
 				<div className="container">
 					<div className="row">
 						<div className="col-6">
@@ -84,7 +83,7 @@ class BadgeEdit extends React.Component {
 							/>
 						</div>
 						<div className="col-6">
-							<h2>Edit Badge</h2>
+							<h2>Edit Attendant</h2>
 							<BadgeForm 
 								onSubmit={this.handleSubmit} 
 								onChange={this.handleChange} 
