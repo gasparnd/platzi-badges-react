@@ -56,7 +56,7 @@ class BadgeNew extends React.Component {
 					<img src={header} alt="Platzi Conf Logo" />
 				</div>
 				<div></div>
-				<div className="container">
+				<div className="container BadgeNew__badge">
 					<div className="row">
 						<div className="col-6">
 							<Badge 

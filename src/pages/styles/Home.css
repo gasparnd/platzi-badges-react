@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 2rem;
-	padding: 2rem;
+	padding: 4rem;
 	background: url('../../images/stars.svg'), #1B1B25;
   	background-repeat: repeat;
 }

@@ -70,7 +70,7 @@ class BadgeEdit extends React.Component {
 				<div className="BadgeEdit__hero">
 					<img src={header} alt="Platzi Conf Logo" />
 				</div>
-				<div className="container">
+				<div className="container BadgeEdit__badge">
 					<div className="row">
 						<div className="col-6">
 							<Badge 
