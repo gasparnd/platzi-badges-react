@@ -1,0 +1,19 @@
+.Home__hero {
+	height: 80vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+	padding: 2rem;
+	background: url('../../images/stars.svg'), #1B1B25;
+  	background-repeat: repeat;
+}
+
+.Home__hero img {
+	width: 300px;
+}
+
+.Home__hero a {
+	width: max-content;
+}
