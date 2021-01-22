@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import BadgesList from '../components/BadgesList'
 import PageLoading from '../components/PageLoading'
+import MiniLoading from '../components/MiniLoading'
 import PageError from '../components/PageError'
 import './styles/Badges.css'
 import confLogo from '../images/platziconf-logo.svg'
@@ -22,7 +23,14 @@ class Badges extends React.Component {
 
 	componentDidMount() {
 		this.fetchData()
+
+		this.interval = setInterval(this.fetchData, 5000)
 	}
+
+	componentWillUnmount() {
+		clearTimeout(this.interval)
+	}
+
 
 	fetchData = async () => {
 		this.setState({ loading: true, error: null })
@@ -38,7 +46,7 @@ class Badges extends React.Component {
 		}
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	/*componentDidUpdate(prevProps, prevState) {
 		console.log('5 componentDidUpdate()')
 		console.log({prevProps:prevProps, prevState:prevState})
 		console.log(
@@ -48,10 +56,10 @@ class Badges extends React.Component {
 
 	componentWillUnmount() {
 		clearTimeout(this.timeoutId)
-	}
+	}*/
 
 	render() {
-		if (this.state.loading) {
+		if (this.state.loading && !this.state.data) {
 			return <PageLoading />
 		}
 		if (this.state.error) {
@@ -77,6 +85,9 @@ class Badges extends React.Component {
 						<div className="Badges__container">
 							<BadgesList badges={this.state.data}/>
 						</div>
+
+						{this.state.loading && <MiniLoading />}
+
 					</div>
 				</div>
 			</React.Fragment>
