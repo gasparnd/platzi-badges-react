@@ -1,100 +1,55 @@
 import React from 'react'
-import './styles/BadgeDetails.css'
-import ConfLogo from '../images/platziconf-logo.svg'
-import PageLoadind from '../components/PageLoading'
-import PageError from '../components/PageError'
-import api from '../api'
-import Badge from '../components/Badge'
-
 import {Link} from 'react-router-dom'
 
+import Badge from '../components/Badge'
 
-class BadgeDetails extends React.Component {
+import ConfLogo from '../images/platziconf-logo.svg'
+import './styles/BadgeDetails.css'
 
-	constructor (props){
-		super(props)
-		this.state = {
-			loading : true,
-			error : null,
-			data : undefined
-		}
-	}
+const ReactDetails = props => {
+	const badge = props.data
+	return(
+		<div>
+			<section className="BadgeDetails__hero">
+				<div className="container">
+					<div className="row">
+						<div className="col-6">
+							<img src={ConfLogo} alt="Conf Logo" />
+						</div>
+						<div className="col-6 BadgeDetails__hero-attendant-name">
+							<h1>{badge.firstName} {badge.lastName}</h1>
+						</div>
+					</div>
+				</div>
+			</section>
 
-	componentDidMount() {
-		this.fetchData()
-	}
+			<section className="container">
 
-	fetchData = async () => {
-		this.setState({loading: true, error: null})
-		try {
-			const data = await api.badges.read(this.props.match.params.badgeId)
-			this.setState({
-				data: data,
-				loading: false
-			})
-		}catch (error) {
-			this.setState({
-				error: error,
-				loading: false
-			})
-		}
-	}
+				<div className="row">
+					<div className="col-6">
+						<Badge firstName={badge.firstName} 
+							lastName={badge.lastName} 
+							email={badge.email} 
+							twitter={badge.twitter} 
+							jobTitle={badge.jobTitle} 
+						/>
+					</div>
 
-	render() {
-
-		if(this.state.loading){
-			return <PageLoadind />
-		}
-
-		if(this.state.error) {
-			return <PageError error={this.state.error} />
-		}
-
-		const badge = this.state.data
-
-		return(
-			<div>
-				<section className="BadgeDetails__hero">
-					<div className="container">
-						<div className="row">
-							<div className="col-6">
-								<img src={ConfLogo} alt="Conf Logo" />
+					<div className="col-6 BadgeDetails__hero-attendant-name">
+						<h2>Actions</h2>
+						<div>
+							<div>
+								<Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link>
 							</div>
-							<div className="col-6 BadgeDetails__hero-attendant-name">
-								<h1>{badge.firstName} {badge.lastName}</h1>
+							<div>
+								<button className="btn btn-danger">Delete</button>
 							</div>
 						</div>
 					</div>
-				</section>
-
-				<section className="container">
-				
-						<div className="row">
-							<div className="col-6">
-								<Badge firstName={badge.firstName} 
-									lastName={badge.lastName} 
-									email={badge.email} 
-									twitter={badge.twitter} 
-									jobTitle={badge.jobTitle} 
-								/>
-							</div>
-
-							<div className="col-6 BadgeDetails__hero-attendant-name">
-								<h2>Actions</h2>
-								<div>
-									<div>
-										<Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link>
-									</div>
-									<div>
-										<button className="btn btn-danger">Delete</button>
-									</div>
-								</div>
-							</div>
-						</div>
-				</section>
-			</div>
-		)
-	}
+				</div>
+			</section>
+		</div>
+	)
 }
 
-export default BadgeDetails
+export default ReactDetails
