@@ -1,0 +1,27 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+import ReactDOM from 'react-dom'
+
+import './styles/Modal.css'
+
+const Modal = props => {
+	const isOpen = props.isOpen
+	if (!isOpen) {
+		return null
+	}
+	if (isOpen) {
+		return(
+			ReactDOM.createPortal(
+					<div className="Modal">
+						<div className="Modal__container">
+							<button onClick={props.onClose} className="Modal__close-button">X</button>
+							{props.children}
+						</div>
+					</div>
+				, document.getElementById('modal'))
+			)
+	}
+	
+}
+
+export default Modal

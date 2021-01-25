@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 import Badge from '../components/Badge'
+import DeleteBadgeModal from '../components/DeleteBadgeModal'
 
 import ConfLogo from '../images/platziconf-logo.svg'
 import './styles/BadgeDetails.css'
@@ -42,7 +43,8 @@ const ReactDetails = props => {
 								<Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link>
 							</div>
 							<div>
-								<button className="btn btn-danger">Delete</button>
+								<button onClick={props.onOpenModal} className="btn btn-danger">Delete</button>
+								<DeleteBadgeModal onDeleteBadge={props.onDeleteBadgeModal} onClose={props.onCloseModal} isOpen={props.modalIsOpen} />
 							</div>
 						</div>
 					</div>
