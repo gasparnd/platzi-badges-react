@@ -24,7 +24,7 @@ class Badges extends React.Component {
 	componentDidMount() {
 		this.fetchData()
 
-		this.interval = setInterval(this.fetchData, 5000)
+		this.interval = setInterval(this.fetchData, 60000)
 	}
 
 	componentWillUnmount() {

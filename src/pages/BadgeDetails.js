@@ -41,6 +41,7 @@ const ReactDetails = props => {
 						<div>
 							<div>
 								<Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link>
+
 							</div>
 							<div>
 								<button onClick={props.onOpenModal} className="btn btn-danger">Delete</button>
