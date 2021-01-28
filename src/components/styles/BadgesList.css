@@ -17,3 +17,47 @@
   width: 80px;
   height: 80px;
 }
+
+.Badges__list {
+  display: grid;
+  justify-content: center;
+}
+
+.Badges__list-item {
+  margin: 0;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: .5rem;
+  background: #fff;
+}
+
+.Badges__item-img img {
+  border-radius: 50%;
+}
+
+.Badges__list-info h3, a {
+  margin: 0;
+}
+
+.Badges__list-info p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.Badges__list-info h3 {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 450px) {
+  .BadgesListItem {
+    padding: .5rem;
+  }
+
+  .Badges__list-item {
+    padding: 0;
+    width: 100%;
+    
+  }
+}

@@ -30,34 +30,21 @@
   margin-right: 2rem;
 }
 
-.Badges__list {
-  display: grid;
-  justify-content: center;
+@media screen and (max-width: 780px) {
+  .Badges_conf-logo {
+    width: 250px;
+  }
 }
 
-.Badges__list-item {
-  margin: .5rem 0;
-  border-radius: 5px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
-  padding: .5rem;
-  background: #fff;
-}
+@media screen and (max-width: 450px) {
+  .Badges_conf-logo {
+    width: 200px;
+  }
 
-.Badges__item-img img {
-  border-radius: 50%;
-}
-
-.Badges__list-info h3, a {
-  margin: 0;
-}
-
-.Badges__list-info p {
-  margin: 0;
-  font-weight: bold;
-}
-
-.Badges__list-info h3 {
-  font-size: 1.5rem;
+  .Badges__buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }

@@ -8,7 +8,7 @@ class Home extends React.Component {
 	render() {
 		return(
 			<div className="Home__hero">
-				<img src={LogoHero} alt="Conf Logo" />
+				<img className="Home__hero-image" src={LogoHero} alt="Conf Logo" />
 				<Link to="/badges" className="btn btn-primary">Badges</Link>
 			</div>
 		)
