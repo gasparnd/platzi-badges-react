@@ -9,6 +9,41 @@
   justify-content: center;
 } 
 
-.BadgeNew__badge {
+.BadgeNew__badge-container {
 	margin-bottom: 2rem;
+}
+
+.BadgeNew__badge-info {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-gap: 2rem;
+}
+
+@media screen and (max-width: 780px) {
+	.BadgeNew__badge-info {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, auto);
+	}
+
+	.BadgeNew__badge {
+		grid-row: 0/1;
+		grid-column: 0/1;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.BadgeNew__badge-info {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, auto);
+
+	}
+
+	.BadgeNew__badge {
+		grid-row: 0/1;
+		grid-column: 0/1;
+	}
+
+	.BadgeNew__hero img {
+		width: 150px;
+	}
 }

@@ -56,9 +56,9 @@ class BadgeNew extends React.Component {
 					<img src={header} alt="Platzi Conf Logo" />
 				</div>
 				<div></div>
-				<div className="container BadgeNew__badge">
-					<div className="row">
-						<div className="col-6">
+				<div className="container BadgeNew__badge-container">
+					<div className="BadgeNew__badge-info">
+						<div className="BadgeNew__badge">
 							<Badge 
 								firstName={this.state.form.firstName || 'First Name'} 
 								lastName={this.state.form.lastName || 'Last Name'}  
@@ -68,7 +68,7 @@ class BadgeNew extends React.Component {
 								avatarUrl={this.state.form.avatarUrl} 
 							/>
 						</div>
-						<div className="col-6">
+						<div className="BadgeNew__badge-form">
 							<h2>New Attendant</h2>
 							<BadgeForm 
 								onSubmit={this.handleSubmit} 
