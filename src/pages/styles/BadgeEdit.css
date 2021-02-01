@@ -1,4 +1,4 @@
-.BadgeEdit__hero {
+/*.BadgeEdit__hero {
   width: 100%;
   padding: 2rem 0;
   background: url('../../images/stars.svg'), #1B1B25;
@@ -11,4 +11,53 @@
 
 .BadgeEdit__badge {
 	margin-bottom: 2rem;
+}*/
+.BadgeEdit__hero {
+  width: 100%;
+  padding: 2rem 0;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+} 
+
+.BadgeEdit__badge-container {
+	margin-bottom: 2rem;
+}
+
+.BadgeEdit__badge-info {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-gap: 2rem;
+}
+
+@media screen and (max-width: 780px) {
+	.BadgeEdit__badge-info {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, auto);
+	}
+
+	.BadgeEdit__badge {
+		grid-row: 0/1;
+		grid-column: 0/1;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.BadgeEdit__badge-info {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, auto);
+
+	}
+
+	.BadgeEdit__badge {
+		grid-row: 0/1;
+		grid-column: 0/1;
+	}
+
+	.BadgeEdit__hero img {
+		width: 150px;
+	}
 }

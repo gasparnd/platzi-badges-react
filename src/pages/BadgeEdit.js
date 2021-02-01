@@ -70,9 +70,9 @@ class BadgeEdit extends React.Component {
 				<div className="BadgeEdit__hero">
 					<img src={header} alt="Platzi Conf Logo" />
 				</div>
-				<div className="container BadgeEdit__badge">
-					<div className="row">
-						<div className="col-6">
+				<div className="container BadgeEdit__badge-container">
+					<div className="BadgeEdit__badge-info">
+						<div className="BadgeEdit__badge">
 							<Badge 
 								firstName={this.state.form.firstName || 'First Name'} 
 								lastName={this.state.form.lastName || 'Last Name'}  
@@ -82,7 +82,7 @@ class BadgeEdit extends React.Component {
 								avatarUrl={this.state.form.avatarUrl} 
 							/>
 						</div>
-						<div className="col-6">
+						<div className="BadgeEdit__badge-form">
 							<h2>Edit Attendant</h2>
 							<BadgeForm 
 								onSubmit={this.handleSubmit} 
