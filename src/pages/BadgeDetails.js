@@ -12,22 +12,18 @@ const ReactDetails = props => {
 	return(
 		<div>
 			<section className="BadgeDetails__hero">
-				<div className="container">
-					<div className="row">
-						<div className="col-6">
-							<img src={ConfLogo} alt="Conf Logo" />
-						</div>
-						<div className="col-6 BadgeDetails__hero-attendant-name">
-							<h1>{badge.firstName} {badge.lastName}</h1>
-						</div>
-					</div>
+				<div className="BadgeDetails__hero-logo">
+					<img src={ConfLogo} alt="Conf Logo" />
+				</div>
+				<div className="BadgeDetails__hero-attendant-name">
+					<h1>{badge.firstName} {badge.lastName}</h1>
 				</div>
 			</section>
 
 			<section className="container">
 
-				<div className="row">
-					<div className="col-6">
+				<div className="BadgeDetails__info">
+					<div className="BadgeDetails__info-badge">
 						<Badge firstName={badge.firstName} 
 							lastName={badge.lastName} 
 							email={badge.email} 
@@ -36,9 +32,9 @@ const ReactDetails = props => {
 						/>
 					</div>
 
-					<div className="col-6 BadgeDetails__hero-attendant-name">
+					<div className="BadgeDetails__info-actions" >
 						<h2>Actions</h2>
-						<div>
+						<div className="BadgeDetails__info-buttons">
 							<div>
 								<Link className="btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link>
 

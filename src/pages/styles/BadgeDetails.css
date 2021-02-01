@@ -5,16 +5,52 @@
   background-repeat: repeat;
   margin-bottom: 1rem;
   color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
-.BadgeDetails__hero-attendant-name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.BadgeDetails__info {
+  display: grid;
+  grid-template-columns: 2fr 1fr;  
+  grid-gap: 1rem;
 }
 
-.BadgeDetails__buttons {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
+.BadgeDetails__info-actions {
+  align-self: center;
+}
+
+
+@media screen and (max-width: 780px) {
+  .BadgeDetails__hero {
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .BadgeDetails__hero-logo img {
+    width: 280px;
+  }
+
+  .BadgeDetails__info {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto; 
+  }
+
+  .BadgeDetails__info-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .BadgeDetails__hero-logo img {
+    width: 230px;
+  }
+
+  .BadgeDetails__hero-attendant-name h1 {
+    font-size: 2rem;
+  }
 }
