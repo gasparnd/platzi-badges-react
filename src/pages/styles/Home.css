@@ -21,7 +21,6 @@
 @media screen and (max-width: 720px) {
 	.Home__hero {
 		padding: 3rem;
-		width: 90vh;
 	}
 
 	.Home__hero img {
