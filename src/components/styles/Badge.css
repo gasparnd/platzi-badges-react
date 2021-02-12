@@ -21,7 +21,7 @@
 }
 
 .Badge__section-name h1{
-  font-size: calc(1fr, 1vw)
+  font-size: 2.5rem;
 }
 
 .Badge__section-info {
