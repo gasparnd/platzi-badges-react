@@ -18,7 +18,7 @@ const App = () => {
 					<Route exact path="/badges/new" component={BadgeNew} />
 					<Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
 					<Route exact path="/badges/:badgeId" component={BadgeDetails} />
-					<Route component={NotFound} component={NotFound} />
+					<Route component={NotFound} />
 				</Switch>
 			</Layout>
 		</BrowserRouter> 
